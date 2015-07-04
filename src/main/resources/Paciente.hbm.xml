@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+<hibernate-mapping>
+	<class 
+		name="edu.uniandes.ecos.arquisoft.model.Paciente"
+		table="tbl_pacientes">
+		
+		<id name="idPaciente" type="int" column="id_paciente">
+			<generator class="native" />
+		</id>
+		
+	</class>
+
+</hibernate-mapping>
