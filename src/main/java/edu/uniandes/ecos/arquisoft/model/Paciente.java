@@ -28,6 +28,17 @@ public class Paciente {
 	
 	private Date fechaRegistro;
 	
+	public Paciente(){
+		nombresPaciente = "Nombre";
+		apellidosPaciente = "Apellido";
+		docIdentificacion = 0L;
+		fechaNacimiento = null;
+		direccionResidencia = "Cl Busquela Cr Encuentrela";
+		telefonoFijo = "0";
+		telefonoMovil = "0";
+		fechaRegistro = null;
+	}
+	
 	public Paciente(String nombres, String apellidos,
 			long numDocumento, Date fechaNacimiento, String direccion,
 			String telFijo, String telMovil){
