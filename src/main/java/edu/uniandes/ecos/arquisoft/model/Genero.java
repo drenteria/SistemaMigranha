@@ -1,21 +1,23 @@
 package edu.uniandes.ecos.arquisoft.model;
 
+import edu.uniandes.ecos.arquisoft.persistence.PersistentEnum;
+
 /**
  * Enumeración que representa el género de una persona
  * @author drenteria
  *
  */
-public enum Genero {
+public enum Genero implements PersistentEnum {
 	NO_DEFINIDO (1, "No definido"),
 	MASCULINO (2, "Hombre"),
 	FEMENINO (3, "Mujer");
 	
-	private int idGenero;
+	private int id;
 	
 	private String nombreGenero;
 	
 	private Genero(int id, String nombre){
-		this.setIdGenero(id);
+		this.setId(id);
 		this.setNombreGenero(nombre);
 	}
 
@@ -27,12 +29,12 @@ public enum Genero {
 		this.nombreGenero = nombreGenero;
 	}
 
-	public int getIdGenero() {
-		return idGenero;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdGenero(int idGenero) {
-		this.idGenero = idGenero;
+	public void setId(int idGenero) {
+		this.id = idGenero;
 	}
 	
 }

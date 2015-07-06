@@ -2,8 +2,16 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
  "-//Hibernate/Hibernate Mapping DTD//EN"
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
- 
+
 <hibernate-mapping>
+	<typedef 
+		name="genero" 
+		class="edu.uniandes.ecos.arquisoft.persistence.GeneroUserType">
+	</typedef>
+	<typedef 
+		name="tipoId" 
+		class="edu.uniandes.ecos.arquisoft.persistence.TipoIdUserType">
+	</typedef>
 	<class 
 		name="edu.uniandes.ecos.arquisoft.model.Paciente"
 		table="tbl_pacientes">
@@ -19,6 +27,11 @@
 		<property name="telefonoFijo" column="telefono_paciente" type="string" />
 		<property name="telefonoMovil" column="movil_paciente" type="string" />
 		<property name="fechaRegistro" column="fecha_registro" type="timestamp" />
+<<<<<<< HEAD
+		<property name="generoPaciente" column="genero_paciente" type="genero" />
+		<property name="tipoIdPaciente" column="tipo_id" type="tipoId" />
+    	
+=======
 		<property name="generoPaciente" column="genero_paciente">
     		<type name="org.hibernate.type.EnumType">
 		        <param name="enumClass">edu.uniandes.ecos.arquisoft.model.Genero</param>
@@ -29,5 +42,6 @@
 		        <param name="enumClass">edu.uniandes.ecos.arquisoft.model.TipoIdentificacion</param>
 		    </type>
 		</property>
+>>>>>>> 401b283dca8437bfb8524e665b8b74bb810f9e96
 	</class>
 </hibernate-mapping>
