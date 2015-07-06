@@ -8,7 +8,6 @@ import edu.uniandes.ecos.arquisoft.persistence.PersistentEnum;
  * @author drenteria
  *
  */
-<<<<<<< HEAD
 public enum TipoIdentificacion implements PersistentEnum{
 	
 	CEDULA_CIUDADANIA (1, "Cedula Ciudadania", "CC"),
@@ -54,16 +53,4 @@ public enum TipoIdentificacion implements PersistentEnum{
 	public void setAbreviaturaTipoId(String abreviaturaTipoId) {
 		this.abreviaturaTipoId = abreviaturaTipoId;
 	}
-=======
-public enum TipoIdentificacion {
-	
-	CEDULA_CIUDADANIA,
-	CEDULA_EXTRANJERIA,
-	REGISTRO_CIVIL,
-	TARJETA_IDENTIDAD,
-	NUIP,
-	PASAPORTE,
-	PERMISO_ESPECIAL;
->>>>>>> 401b283dca8437bfb8524e665b8b74bb810f9e96
-	
 }
