@@ -28,6 +28,10 @@ public class Paciente {
 	
 	private Date fechaRegistro;
 	
+	private Genero generoPaciente;
+	
+	private TipoIdentificacion tipoIdPaciente;
+	
 	public Paciente(){
 		nombresPaciente = "Nombre";
 		apellidosPaciente = "Apellido";
@@ -121,6 +125,22 @@ public class Paciente {
 
 	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
+	}
+
+	public Genero getGeneroPaciente() {
+		return generoPaciente;
+	}
+
+	public void setGeneroPaciente(Genero generoPaciente) {
+		this.generoPaciente = generoPaciente;
+	}
+
+	public TipoIdentificacion getTipoIdPaciente() {
+		return tipoIdPaciente;
+	}
+
+	public void setTipoIdPaciente(TipoIdentificacion tipoIdPaciente) {
+		this.tipoIdPaciente = tipoIdPaciente;
 	}
 
 }

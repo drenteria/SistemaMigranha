@@ -1,6 +1,5 @@
 package edu.uniandes.ecos.arquisoft.persistence;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -14,7 +13,7 @@ import edu.uniandes.ecos.arquisoft.model.Paciente;
  * @author drenteria
  *
  */
-public class PacienteDAO implements IGenericDAO {
+public class PacienteDAO implements IPacienteDAO {
 
 	private SessionFactory sessionFactory;
 	
@@ -22,49 +21,35 @@ public class PacienteDAO implements IGenericDAO {
 		sessionFactory = HibernateDBManager.getInstance().getSessionFactory();
 	}
 
-	public boolean guardar(Object modelObject) {
-		if(modelObject instanceof Paciente){
-			try{
-				sessionFactory.getCurrentSession().beginTransaction();
-				((Paciente)modelObject).setFechaRegistro(new Date());
-				sessionFactory.getCurrentSession().save(modelObject);
-				sessionFactory.getCurrentSession().getTransaction().commit();
-				return true;
-			}
-			catch(HibernateException ex){
-				ex.printStackTrace();
-				return false;
-			}
-		}
-		return false;
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Object> listarTodos() {
+	public boolean guardarPaciente(Paciente elPaciente) {
 		try{
-			Query query = sessionFactory.getCurrentSession().createQuery("from Paciente");
-			return query.list();
+			sessionFactory.getCurrentSession().beginTransaction();
+			sessionFactory.getCurrentSession().save(elPaciente);
+			sessionFactory.getCurrentSession().getTransaction().commit();
+			System.out.println("Paciente guardado con ID: " + elPaciente.getIdPaciente());
+			return true;
 		}
 		catch(HibernateException ex){
 			ex.printStackTrace();
-			return null;
+			return false;
 		}
 	}
 
-	public Object buscar(int modelObjectId) {
-		try{
-			Query query = sessionFactory.getCurrentSession()
+	public List<Paciente> listarTodos() {
+		Query query = sessionFactory.getCurrentSession().createQuery("from Paciente");
+		return query.list();
+	}
+
+	public Paciente buscarPaciente(int idPaciente) {
+		Query query = sessionFactory.getCurrentSession()
 				.createQuery("from Paciente WHERE idPaciente = :idPaciente");
-			query.setParameter("idPaciente", modelObjectId);
-			if(!query.list().isEmpty()){
-				return query.list().get(0);
-			}
-			return null;
+		query.setParameter("idPaciente", idPaciente);
+		if(!query.list().isEmpty()){
+			return (Paciente)query.list().get(0);
 		}
-		catch(HibernateException ex){
-			ex.printStackTrace();
-			return null;
-		}
+		return null;
 	}
+
+	
 	
 }

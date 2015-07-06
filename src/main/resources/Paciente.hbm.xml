@@ -19,7 +19,15 @@
 		<property name="telefonoFijo" column="telefono_paciente" type="string" />
 		<property name="telefonoMovil" column="movil_paciente" type="string" />
 		<property name="fechaRegistro" column="fecha_registro" type="timestamp" />
-		
+		<property name="generoPaciente" column="genero_paciente">
+    		<type name="org.hibernate.type.EnumType">
+		        <param name="enumClass">edu.uniandes.ecos.arquisoft.model.Genero</param>
+		    </type>
+		</property>
+		<property name="tipoIdPaciente" column="tipo_id">
+    		<type name="org.hibernate.type.EnumType">
+		        <param name="enumClass">edu.uniandes.ecos.arquisoft.model.TipoIdentificacion</param>
+		    </type>
+		</property>
 	</class>
-
 </hibernate-mapping>

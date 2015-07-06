@@ -6,41 +6,14 @@ package edu.uniandes.ecos.arquisoft.model;
  * @author drenteria
  *
  */
-public class TipoIdentificacion {
-
-	private int idTipoID;
+public enum TipoIdentificacion {
 	
-	private String nombreTipoID;
-	
-	private String abreviadoTipoID;
-	
-	public TipoIdentificacion(String nombre, String abreviado){
-		this.nombreTipoID = nombre;
-		this.abreviadoTipoID = abreviado;
-	}
-
-	public int getIdTipoID() {
-		return idTipoID;
-	}
-
-	public void setIdTipoID(int idTipoID) {
-		this.idTipoID = idTipoID;
-	}
-
-	public String getNombreTipoID() {
-		return nombreTipoID;
-	}
-
-	public void setNombreTipoID(String nombreTipoID) {
-		this.nombreTipoID = nombreTipoID;
-	}
-
-	public String getAbreviadoTipoID() {
-		return abreviadoTipoID;
-	}
-
-	public void setAbreviadoTipoID(String abreviadoTipoID) {
-		this.abreviadoTipoID = abreviadoTipoID;
-	}
+	CEDULA_CIUDADANIA,
+	CEDULA_EXTRANJERIA,
+	REGISTRO_CIVIL,
+	TARJETA_IDENTIDAD,
+	NUIP,
+	PASAPORTE,
+	PERMISO_ESPECIAL;
 	
 }
