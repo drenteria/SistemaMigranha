@@ -1,6 +1,12 @@
 package edu.uniandes.ecos.arquisoft.model;
 
+import java.io.Serializable;
 import java.util.Date;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Clase que representa a un paciente
@@ -8,28 +14,42 @@ import java.util.Date;
  * @author drenteria
  *
  */
-public class Paciente {
+@XmlRootElement(name="paciente")
+@XmlAccessorType(XmlAccessType.NONE)
+public class Paciente implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
+	@XmlAttribute
 	private int idPaciente;
 	
+	@XmlAttribute
 	private String nombresPaciente;
 	
+	@XmlAttribute
 	private String apellidosPaciente;
 	
+	@XmlAttribute
 	private long docIdentificacion;
 	
+	@XmlAttribute
 	private Date fechaNacimiento;
 	
+	@XmlAttribute
 	private String direccionResidencia;
 	
+	@XmlAttribute
 	private String telefonoFijo;
 	
+	@XmlAttribute
 	private String telefonoMovil;
 	
+	@XmlAttribute
 	private Date fechaRegistro;
 	
 	private Genero generoPaciente;
 	
+	@XmlAttribute
 	private TipoIdentificacion tipoIdPaciente;
 	
 	public Paciente(){
