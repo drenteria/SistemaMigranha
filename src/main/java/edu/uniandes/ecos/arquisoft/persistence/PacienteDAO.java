@@ -21,24 +21,23 @@ public class PacienteDAO implements IPacienteDAO {
 	
 	public PacienteDAO(){
 		sessionFactory = HibernateDBManager.getInstance().getSessionFactory();
+		sessionFactory.openSession();
 	}
 	
 	private void setUpSession() {
-		if(sessionFactory.getCurrentSession() == null ||
-			!sessionFactory.getCurrentSession().isOpen())
-		{
-			sessionFactory.openSession();
-		}
+		sessionFactory.openSession();		
 	}
 	
 	private void closeSession() {
-		sessionFactory.getCurrentSession().close();
+		if(sessionFactory.getCurrentSession().isOpen()){
+			sessionFactory.getCurrentSession().close();
+		}
 	}
 
 	@Override
 	public boolean guardarPaciente(Paciente elPaciente) {
-		setUpSession();
 		try{
+			setUpSession();
 			sessionFactory.getCurrentSession().beginTransaction();
 			sessionFactory.getCurrentSession().save(elPaciente);
 			sessionFactory.getCurrentSession().getTransaction().commit();
@@ -56,9 +55,11 @@ public class PacienteDAO implements IPacienteDAO {
 
 	@Override
 	public List<Paciente> listarTodos() {
-		setUpSession();
 		try {
+			setUpSession();
+			sessionFactory.getCurrentSession().beginTransaction();
 			Query query = sessionFactory.getCurrentSession().createQuery("from Paciente");
+			sessionFactory.getCurrentSession().getTransaction().commit();
 			return query.list();
 		}
 		catch (Exception e) {
